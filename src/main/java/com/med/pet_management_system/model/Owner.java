@@ -1,5 +1,6 @@
 package com.med.pet_management_system.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,5 +23,6 @@ public class Owner {
     private String phone;
     private String email;
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("owner")
     private List<Pet> pets;
 }
